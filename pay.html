@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>课程收费与报名 - 义原学府</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 仅此页的简易额外样式，可挪到style.css */
+    .pricing-table { width:100%; border-collapse:collapse; margin-top:20px; }
+    .pricing-table th, .pricing-table td {
+      border:1px solid #ccc; padding:10px; text-align:left;
+    }
+    .pricing-table th { background:#004488; color:#fff; }
+    .pay-qrs { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin:30px 0; }
+    .pay-qrs figure { max-width:180px; text-align:center; }
+    .pay-qrs img { width:100%; height:auto; border:1px solid #ccc; border-radius:8px; }
+    .enroll-form label { display:block; margin-top:12px; }
+    .enroll-form input, .enroll-form select, .enroll-form textarea {
+      width:100%; max-width:400px; padding:8px; margin-top:4px;
+    }
+    .enroll-form button { margin-top:16px; padding:10px 24px; background:#004488; color:#fff; border:none; border-radius:4px; cursor:pointer; }
+    .enroll-form button:hover { background:#0066cc; }
+    .note-box { background:#fff9c4; padding:15px; border-left:4px solid #ffd600; margin-top:25px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>义原学府留学机构</h1>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="about.html">机构简介</a>
+      <a href="services.html">主打服务</a>
+      <a href="teachers.html">教师信息</a>
+      <a href="cases.html">成功案例</a>
+      <a href="contact.html">联系方式</a>
+      <a href="pricing.html">收费/报名</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>课程收费与报名</h2>
+    <p>请选择合适的服务，扫码付款后请填写报名表，我们会在24小时内联系您确认课程安排。</p>
+
+    <table class="pricing-table">
+      <tr>
+        <th>服务</th>
+        <th>适用对象</th>
+        <th>说明</th>
+        <th>价格（示例）</th>
+      </tr>
+      <tr>
+        <td>留学初步咨询（1小时）</td>
+        <td>计划出国家长/学生</td>
+        <td>背景评估 + 留学方向建议</td>
+        <td>¥2000</td>
+      </tr>
+      <tr>
+        <td>文书精修（单篇）</td>
+        <td>申请本科/硕士</td>
+        <td>结构优化 + 语言润色</td>
+        <td>¥800</td>
+      </tr>
+      <tr>
+        <td>英语一对一课时包（1小时）</td>
+        <td>中考/高考/雅思/托福</td>
+        <td>个性化授课，可在线</td>
+        <td>¥3,000</td>
+      </tr>
+      <!-- 可继续添加 -->
+    </table>
+
+    <h3>扫码支付</h3>
+    <div class="pay-qrs">
+      <figure>
+        <img src="wechat-pay.jpg" alt="微信收款码">
+        <figcaption>微信支付</figcaption>
+      </figure>
+      <figure>
+        <img src="alipay-pay.jpg" alt="支付宝收款码">
+        <figcaption>支付宝支付</figcaption>
+      </figure>
+    </div>
+
+    <div class="note-box">
+      <strong>付款后务必填写下方报名表：</strong>  
+      请在备注写“学生姓名 + 所购课程 + 金额”。如上传截图，请在表单中填写链接或通过网站右下角在线聊天发送给我们。
+    </div>
+
+    <h3>报名表</h3>
+    <!-- 复用 Formsubmit; 你也可换 Google Form -->
+    <form class="enroll-form" action="https://formsubmit.co/2476967159@qq.com" method="POST">
+      <!-- Formsubmit 增强隐藏字段：跳转感谢页、关闭垃圾机器人 -->
+      <input type="hidden" name="_subject" value="义原学府报名表提交">
+      <input type="hidden" name="_captcha" value="false">
+      <!-- 可自定义成功跳转 -->
+      <!-- <input type="hidden" name="_next" value="https://yichaog.github.io/yiyuan-international-edu/thanks.html"> -->
+
+      <label>学生姓名:
+        <input type="text" name="student_name" required>
+      </label>
+
+      <label>年级/阶段:
+        <input type="text" name="grade" placeholder="初三 / 高二 / Gap / 申请研究生" required>
+      </label>
+
+      <label>家长或联系微信:
+        <input type="text" name="wechat" required>
+      </label>
+
+      <label>邮箱:
+        <input type="email" name="email" required>
+      </label>
+
+      <label>所购服务:
+        <select name="service">
+          <option value="consult">留学初步咨询</option>
+          <option value="essay">文书精修</option>
+          <option value="english-10h">英语一对一课时包（10小时）</option>
+          <option value="other">其他（请在备注写明）</option>
+        </select>
+      </label>
+
+      <label>支付金额(￥):
+        <input type="number" name="paid_amount" min="0" step="0.01" required>
+      </label>
+
+      <label>支付方式:
+        <select name="pay_method">
+          <option value="wechat">微信</option>
+          <option value="alipay">支付宝</option>
+          <option value="other">其他</option>
+        </select>
+      </label>
+
+      <label>备注 / 交易号 / 支付截图链接:
+        <textarea name="note" rows="4" placeholder="可粘贴图床/网盘链接或在聊天窗口发截图"></textarea>
+      </label>
+
+      <button type="submit">提交报名</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 义原学府留学机构. 保留所有权利。</p>
+  </footer>
+
+  <!-- Chatra Live Chat Script -->
+  <script>
+    (function(d, w, c) {
+        w.ChatraID = 'mPcHhSpnak2pcAxHc';
+        var s = d.createElement('script');
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        s.async = true;
+        s.src = 'https://call.chatra.io/chatra.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
+</body>
+</html>
